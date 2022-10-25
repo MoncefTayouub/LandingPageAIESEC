@@ -42,10 +42,24 @@ def SigIn(request):
 def Login(request):
 
     if request.method == "POST":
-        print(authenticate(username= request.POST.get('username') , password = request.POST.get('password')))
         if ( authenticate(username= request.POST.get('username') , password = request.POST.get('password')) == None ):
             return Response(0)
         else : 
             return Response(1)
+
+    return Response('')
+
+@api_view(['GET','POST'])
+def ChangePassword(request):
+
+    if request.method == "POST":
+        users = User.objects.get(username = request.POST.get('name') )
+        users.set_password(request.POST.get('password'))
+        users.save()
+        if (authenticate(username= request.POST.get('username') , password = request.POST.get('password')) == None ):
+            return Response(0)
+        else : 
+            return Response(1)
+
 
     return Response('')

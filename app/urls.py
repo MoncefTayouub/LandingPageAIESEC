@@ -5,4 +5,5 @@ from . import views
 urlpatterns = [
      path('log/singin/', views.SigIn ) ,
      path('log/in/', views.Login ) ,
+     path('log/changepassword/', views.ChangePassword ) ,
 ]

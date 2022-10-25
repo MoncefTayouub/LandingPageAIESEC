@@ -40,4 +40,20 @@ const login = async ()=> {
     
     
     }
-    
+
+
+    const changePassword = async ()=> {
+        await axios ({
+            method : 'post' ,
+            url : 'http://127.0.0.1:8000/log/changepassword/' ,
+            data : DataForm
+        })
+        .then((response)=>{
+            console.log(response.data) ;
+        
+        }) .catch(function (error) {
+            console.log(error)
+          });
+        
+        
+        }
