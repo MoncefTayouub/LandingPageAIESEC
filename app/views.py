@@ -22,6 +22,10 @@ from .forms import *
 # Create your views here.
 
 @api_view(['GET','POST'])
+def Home(request):    
+    return Response('')
+    
+@api_view(['GET','POST'])
 def SigIn(request):
 
     if request.method == "POST":
