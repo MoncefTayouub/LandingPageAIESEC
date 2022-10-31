@@ -1,9 +1,4 @@
-from ast import Return
-from asyncio import constants
-from tkinter.messagebox import RETRY
-from turtle import title
-from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseNotFound
+
 from .models import * 
 from rest_framework.response import *
 from rest_framework.decorators import api_view
