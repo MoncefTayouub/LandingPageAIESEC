@@ -1,6 +1,5 @@
 from ast import Return
 from asyncio import constants
-from asyncio.windows_events import NULL
 from tkinter.messagebox import RETRY
 from turtle import title
 from django.shortcuts import render
@@ -23,7 +22,7 @@ from .forms import *
 
 @api_view(['GET','POST'])
 def Home(request):    
-    return Response('')
+    return Response('') 
     
 @api_view(['GET','POST'])
 def SigIn(request):
