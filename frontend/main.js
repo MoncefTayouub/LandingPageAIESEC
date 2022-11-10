@@ -62,15 +62,15 @@ const login = async ()=> {
         const craetmc = async ()=> {
             let gettingData= new FormData();
             gettingData.append('name',document.getElementById('name').value)
-            gettingData.append('why',document.getElementById('name2').value)
-            gettingData.append('how',document.getElementById('name3').value)
-            gettingData.append('what',document.getElementById('name4').value)
-            gettingData.append('vision',document.getElementById('5').value)
+            gettingData.append('why',document.getElementById('why').value)
+            gettingData.append('how',document.getElementById('how').value)
+            gettingData.append('what',document.getElementById('what').value)
+            gettingData.append('vision',document.getElementById('vision').value)
             gettingData.append('picture',document.getElementById('picture').files[0])
             console.log(document.getElementById('picture').files[0])
             await axios ({
                 method : 'post' ,
-                url : 'http://127.0.0.1:8000/mc_info/create/' ,
+                url : 'https://aieseclandingpage.herokuapp.com/mc_info/create/' ,
                 data : gettingData
             })
             .then((response)=>{
@@ -81,3 +81,4 @@ const login = async ()=> {
               });
             
         }
+        // https://aieseclandingpage.herokuapp.com/mc_info/team_members/create/

@@ -13,6 +13,7 @@ import random
 import string
 from django.contrib.auth.models import User
 from .forms import *
+from .serializable import *
 # Create your views here.
 
 @api_view(['GET','POST'])
@@ -91,6 +92,9 @@ def createMC (request):
             if (request.FILES != {}) :
                 update.picture = request.FILES['picture']
             update.save()
+        table = MC.objects.all()
+        ser = MCserializers(table , many=True)
+        return Response(  ser.data    )
     return Response('')
 
 @api_view(['GET','POST'])
