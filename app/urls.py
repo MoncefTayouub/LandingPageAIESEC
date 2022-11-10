@@ -7,5 +7,7 @@ urlpatterns = [
      path('log/singin/', views.SigIn ) ,
      path('log/in/', views.Login ) ,
      path('log/changepassword/', views.ChangePassword ) ,
+     path('mc_info/create/', views.createMC ) ,
+     path('mc_info/team_members/create/', views.createMCteamMembers ) ,
 ]
 

@@ -27,7 +27,7 @@ DEBUG = True
     
 # ALLOWED_HOSTS = []
 ALLOWED_HOSTS = [
-    '0.0.0.0',
+    '0.0.0.0', 
     'aieseclandingpage.herokuapp.com', # your herokuapp url
     '127.0.0.1'
 ]
