@@ -60,13 +60,20 @@ const login = async ()=> {
         }
 
         const testConnection = async ()=> {
-        
+            console.log('pushing')
             
-                let respons = await fetch (`http://127.0.0.1:8000/`)
-                let data = await respons.json()
-                
-                console.log(data)
+            await axios ({
+                method : 'post' ,
+                url : 'https://aieseclandingpage.herokuapp.com/' ,
+                data : {'message':'frontend'}
+            })
+            .then((response)=>{
+                console.log(response.data) ;
             
+            }) .catch(function (error) {
+                console.log(error)
+              });
+
             
             }
         // https://aieseclandingpage.herokuapp.com/mc_info/team_members/create/

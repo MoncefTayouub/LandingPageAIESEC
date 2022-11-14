@@ -18,9 +18,11 @@ from .serializable import *
 
 @api_view(['GET','POST'])
 def Home(request):    
+    if request.method == 'POST':
+        return Response({'response':'admit','msg sents':request.POST})
     return Response('you are home') 
     
-@api_view(['GET','POST'])
+@api_view(['GET','POST']) 
 def SigIn(request):
 
     if request.method == "POST":
