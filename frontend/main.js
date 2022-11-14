@@ -12,7 +12,7 @@ DataForm.append('password' , 'chamali123@')
 const submiting = async ()=> {
 await axios ({
     method : 'post' ,
-    url : 'http://127.0.0.1:8000/log/singin/' ,
+    url : 'https://aieseclandingpage.herokuapp.com/log/singin/' ,
     data : DataForm
 })
 .then((response)=>{
@@ -65,7 +65,7 @@ const login = async ()=> {
             await axios ({
                 method : 'post' ,
                 url : 'https://aieseclandingpage.herokuapp.com/' ,
-                data : {'message':'frontend'}
+                data : DataForm
             })
             .then((response)=>{
                 console.log(response.data) ;
@@ -73,7 +73,5 @@ const login = async ()=> {
             }) .catch(function (error) {
                 console.log(error)
               });
-
-            
             }
         // https://aieseclandingpage.herokuapp.com/mc_info/team_members/create/
