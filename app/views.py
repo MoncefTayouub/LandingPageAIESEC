@@ -19,7 +19,10 @@ from .serializable import *
 @api_view(['GET','POST'])
 def Home(request):    
     if request.method == 'POST':
+        rq = FQ.objects.create(Question='WHAT IS AIESEC',Answer='any yongh individual need')
+        rq.save()
         return Response({'response':'admit','msg sents':request.POST})
+    
     return Response('you are home') 
     
 @api_view(['GET','POST']) 

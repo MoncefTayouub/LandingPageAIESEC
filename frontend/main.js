@@ -21,8 +21,6 @@ await axios ({
 }) .catch(function (error) {
     console.log(error)
   });
-
-
 }
 
 const login = async ()=> {
