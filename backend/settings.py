@@ -91,17 +91,17 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        # 'ENGINE': 'django.db.backends.sqlite3',
+        # 'NAME': BASE_DIR / 'db.sqlite3',
       
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': 'd6em4rtmspvvb1',
+            'USER': 'pdpkwixnezdefu',
+            'PASSWORD': '92551cff4c7da3a861dd7f2d0d9a3a82f5a4d8632e7a56ca85b80b3c258e0886',
+            'HOST': 'ec2-18-215-41-121.compute-1.amazonaws.com',
+            'PORT': '5432',
     }
 }
-#   'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'aiesecLandingPage',
-#         'USER': 'postgres',
-#         'PASSWORD': 'rootadmin2001@',
-#         'HOST': 'localhost',
-#         'PORT': '',
 
 db_from_env = dj_database_url.config(conn_max_age=600)
 DATABASES['default'].update(db_from_env)
