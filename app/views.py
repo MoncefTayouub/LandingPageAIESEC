@@ -18,7 +18,7 @@ from .serializable import *
 
 @api_view(['GET','POST'])
 def Home(request):    
-    return Response('') 
+    return Response('you are home') 
     
 @api_view(['GET','POST'])
 def SigIn(request):

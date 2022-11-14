@@ -26,6 +26,7 @@ class social_media_link (models.Model):
     insta = models.TextField()
     linkedin = models.TextField()
     facebook = models.TextField()
+    departents = models.TextField() 
 
 class MCTEAM (models.Model):
     name  = models.TextField()
