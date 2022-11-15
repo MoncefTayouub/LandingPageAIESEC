@@ -81,7 +81,7 @@ const login = async ()=> {
             dataC.append( 'Date' , document.getElementById('addDate').value)
             await axios ({
                 method : 'post' ,
-                url : 'https://aieseclandingpage.herokuapp.com/mc_info/create/' ,
+                url : 'http://127.0.0.1:8000/mc_info/create/' ,
                 data : dataC
             })  
             .then((response)=>{

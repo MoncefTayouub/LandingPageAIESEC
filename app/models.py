@@ -37,7 +37,8 @@ class MCTEAM (models.Model):
     whatsapp = models.TextField()
     insta = models.TextField()
     linkedin = models.TextField()
-    facebook = models.TextField() 
+    facebook = models.TextField()
+    deparment = models.TextField()
 
 
 class Event (models.Model):

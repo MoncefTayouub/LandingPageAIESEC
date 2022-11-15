@@ -75,20 +75,22 @@ def ChangePassword(request):
 @api_view(['GET','POST'])
 def createMC (request):
     if request.method == 'POST' :
+        tuple = (str(request.POST.get('Date')),str(2),str(2))
+        print()
         rq  = MC.objects.create()
         rq.name = request.POST.get('name')
         rq.why = request.POST.get('why')
         rq.how = request.POST.get('how')
         rq.what = request.POST.get('what')
         rq.vision = request.POST.get('vision')
-        rq.date = '/'.join(request.POST.get('Date'),2,2) 
+        rq.date = '-'.join(tuple) 
         if (request.FILES != {}) :
             rq.picture = request.FILES['picture']
         rq.save()
         
     table = MC.objects.all()
     ser = MCserializers(table , many=True)
-    return Response(  ser.data    )
+    return Response(ser.data)
 
 @api_view(['GET','POST'])
 def createMCteamMembers (request):
