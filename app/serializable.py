@@ -8,3 +8,8 @@ class MCserializers(serializers.ModelSerializer):
     class Meta :
         fields = '__all__'
         model = MC  
+
+class FQserializers(serializers.ModelSerializer):
+    class Meta :
+        fields = '__all__'
+        model = FQ  
