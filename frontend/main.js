@@ -51,11 +51,14 @@ const login = async ()=> {
 
 
     const changePassword = async ()=> {
-        
+        const dataC =  new FormData();
+        dataC.append( 'username' , document.getElementById('changeName').value)
+        dataC.append( 'password' , document.getElementById('changePassword').value)
+    
         await axios ({
             method : 'post' ,
-            url : 'http://127.0.0.1:8000/log/changepassword/' ,
-            data : DataForm
+            url : 'https://aieseclandingpage.herokuapp.com/log/changepassword/' ,
+            data : dataC
         })
         .then((response)=>{
             console.log(response.data) ;

@@ -59,6 +59,7 @@ def Login(request):
 def ChangePassword(request):
 
     if request.method == "POST":
+        return Response(request.POST)
         users = User.objects.get(username = request.POST.get('name') )
         users.set_password(request.POST.get('password'))
         users.save()
