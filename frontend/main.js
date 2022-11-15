@@ -10,17 +10,23 @@ DataForm.append('email' , 'user@gmail.com')
 DataForm.append('password' , 'chamali123@')
 
 const submiting = async ()=> {
-await axios ({
-    method : 'post' ,
-    url : 'https://aieseclandingpage.herokuapp.com/log/singin/' ,
-    data : DataForm
-})
-.then((response)=>{
-    console.log(response.data) ;
+    const dataF =  new FormData();
+    dataF.append( 'username' , document.getElementById('signName').value)
+    dataF.append( 'email' , document.getElementById('signEmail').value)
+    dataF.append( 'password' , document.getElementById('signPassword').value)
+ 
 
-}) .catch(function (error) {
-    console.log(error)
-  });
+    await axios ({
+        method : 'post' ,
+        url : 'https://aieseclandingpage.herokuapp.com/log/singin/' ,
+        data : dataF
+    })
+    .then((response)=>{
+        console.log(response.data) ;
+
+    }) .catch(function (error) {
+        console.log(error)
+    });
 }
 
 const login = async ()=> {

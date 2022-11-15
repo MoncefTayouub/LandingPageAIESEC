@@ -1,0 +1,129 @@
+* {
+    margin : 0 ;
+    padding : 0 ;
+}
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;600&display=swap');
+
+
+
+.center { 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.spacebetween {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.spacearound {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+} 
+
+.rad10 {
+    -webkit-border-radius: 10px; 
+    -moz-border-radius: 10px;   
+    border-radius: 10px; 
+}
+
+.rad20 {
+    -webkit-border-radius: 20px; 
+    -moz-border-radius: 20px; 
+    border-radius: 20px; 
+}
+.rad40 {
+    -webkit-border-radius: 40px; 
+    -moz-border-radius: 40px; 
+    border-radius: 40px; 
+}
+
+.flipH {
+    -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+}
+.flipv {
+    -webkit-transform: scaleY(-1);
+  transform: scaleY(-1);
+}
+html {
+    scroll-behavior: smooth;
+}
+.flexStart {
+    align-items : flex-start;
+    justify-content : flex-start;
+    color : white ;
+}
+.borderBox {
+    box-sizing: border-box;
+}
+.displayNon{
+    display: none;
+}
+.filter06 {
+    filter: brightness(0.6);
+}
+a {
+    text-decoration: none;
+    color : black ;
+    outline: none ;
+}
+button {
+    cursor: pointer;
+    border : none ;
+    outline: none ;
+}
+input , textarea { 
+    outline: none ;
+    border : none ;
+}
+.lheight  {
+    height : 100vh ;
+}
+li {
+    list-style: none ;
+    color : inherit ;
+}
+.margTop50 {
+    margin-top: 50px;
+}
+
+body { 
+    margin : 0 ;
+    padding : 0 ;
+    box-sizing: border-box;
+    background-color: $backColor;
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+    }
+    .conainer {
+        width : 100% ;
+        box-sizing: border-box;
+        padding : 10px ;
+        background-color: aqua;
+        flex-direction: column; 
+        height : 100vh ;
+        
+    }
+}
+
+// spacebetween spacearound rad10 rad40 rad20 flipH flipv flexStart displayNon
+
+
+
+
+

@@ -32,16 +32,15 @@ def SigIn(request):
 
     if request.method == "POST":
         print(request.POST)
-        return Response({'response':'admit','msg sents':request.POST})
-        # if (User.objects.filter(username = request.POST.get('email')).count() > 0 ):
-        #     return Response(-1)
-        # else :
-        #     form = RegistrationForm(request.POST)
-        #     if (form.is_valid()):
-        #         form.save()
-        #         return Response(1)
-        #     else : 
-        #         return Response(0)
+        if (User.objects.filter(username = request.POST.get('username')).count() > 0 ):
+            return Response(-1)
+        else :
+            form = RegistrationForm(request.POST)
+            if (form.is_valid()):
+                form.save()
+                return Response(1)
+            else : 
+                return Response(0)
     
     return Response('')
 
