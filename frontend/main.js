@@ -30,10 +30,14 @@ const submiting = async ()=> {
 }
 
 const login = async ()=> {
+    const dataL =  new FormData();
+    dataL.append( 'username' , document.getElementById('loginName').value)
+    dataL.append( 'password' , document.getElementById('loginPassword').value)
+ 
     await axios ({
         method : 'post' ,
-        url : 'http://127.0.0.1:8000/log/in/' ,
-        data : DataForm
+        url : 'https://aieseclandingpage.herokuapp.com/log/in/' ,
+        data : dataL
     })
     .then((response)=>{
         console.log(response.data) ;
