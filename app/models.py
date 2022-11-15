@@ -20,6 +20,8 @@ class MC(models.Model):
     what = models.TextField()
     vision = models.TextField()
     picture = models.ImageField(upload_to=upload_path, blank=True)
+    date =  models.DateField(("Date"), default=datetime.date.today)
+
 
 class social_media_link (models.Model):
     whatsapp = models.TextField()
@@ -29,6 +31,7 @@ class social_media_link (models.Model):
     departents = models.TextField() 
 
 class MCTEAM (models.Model):
+    mcParent = models.ForeignKey(MC, on_delete=models.CASCADE)
     name  = models.TextField()
     picture = models.ImageField(upload_to=upload_path, blank=True)
     whatsapp = models.TextField()
