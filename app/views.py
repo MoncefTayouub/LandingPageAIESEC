@@ -49,7 +49,7 @@ def Login(request):
 
     if request.method == "POST":
         if ( authenticate(username= request.POST.get('username') , password = request.POST.get('password')) == None ):
-            return Response([0,request.POST.get('username'),request.POST.get('password')])
+            return Response(0)
         else : 
             return Response(1)
 
