@@ -70,6 +70,34 @@ const login = async ()=> {
         
         }
 
+        const AddMc = async ()=> {
+            const dataC =  new FormData();
+            dataC.append( 'name' , document.getElementById('addMcName').value)
+            dataC.append( 'why' , document.getElementById('addwhy').value)
+            dataC.append( 'how' , document.getElementById('addhow').value)
+            dataC.append( 'what' , document.getElementById('AddWhat').value)
+            dataC.append( 'vision' , document.getElementById('AddVision').value)
+            dataC.append( 'picture' , document.getElementById('AddPicture').files[0])
+            dataC.append( 'Date' , document.getElementById('addDate').value)
+        
+            await axios ({
+                method : 'post' ,
+                url : 'https://aieseclandingpage.herokuapp.com/mc_info/create/' ,
+                data : dataC
+            })  
+            .then((response)=>{
+                console.log(response.data) ;
+            
+            }) .catch(function (error) {
+                console.log(error)
+              });
+            
+            
+            }
+
+
+
+
         const testConnection = async ()=> {
             console.log('pushing')
             

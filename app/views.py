@@ -75,35 +75,20 @@ def ChangePassword(request):
 @api_view(['GET','POST'])
 def createMC (request):
     if request.method == 'POST' :
-        print(request.POST)
-        print(request.FILES)
-        if (MC.objects.all().count() == 0 ):
-            rq  = MC.objects.create()
-            rq.name = request.POST.get('name')
-            rq.why = request.POST.get('why')
-            rq.how = request.POST.get('how')
-            rq.what = request.POST.get('what')
-            rq.vision = request.POST.get('vision')
-            if (request.FILES != {}) :
-                rq.picture = request.FILES['picture']
-            rq.save()
-        else :
-            idIndex = 0 
-            for s in MC.objects.all() :
-                idIndex = s.id
-            update = MC.objects.get(id = idIndex)  
-            update.name = request.POST.get('name')
-            update.why = request.POST.get('why')
-            update.how = request.POST.get('how')
-            update.what = request.POST.get('what')
-            update.vision = request.POST.get('vision')
-            if (request.FILES != {}) :
-                update.picture = request.FILES['picture']
-            update.save()
-        table = MC.objects.all()
-        ser = MCserializers(table , many=True)
-        return Response(  ser.data    )
-    return Response('')
+        rq  = MC.objects.create()
+        rq.name = request.POST.get('name')
+        rq.why = request.POST.get('why')
+        rq.how = request.POST.get('how')
+        rq.what = request.POST.get('what')
+        rq.vision = request.POST.get('vision')
+        rq.date = '-'.join(request.POST.get('Date'),2,2) 
+        if (request.FILES != {}) :
+            rq.picture = request.FILES['picture']
+        rq.save()
+        
+    table = MC.objects.all()
+    ser = MCserializers(table , many=True)
+    return Response(  ser.data    )
 
 @api_view(['GET','POST'])
 def createMCteamMembers (request):

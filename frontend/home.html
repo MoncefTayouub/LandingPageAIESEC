@@ -55,17 +55,38 @@
     </div>
 
     <div class="conainer center">
-        <h3></h3>
+        <h3>Add MC</h3>
         <div class="box center">
-            <p>Username</p>
-            <input placeholder="name"  class="rad40" id="changeName" />
+            <p>name</p>
+            <input placeholder="name"  class="rad40" id="addMcName" />
         </div>
         
         <div class="box center">
-            <p>New password</p>
-            <input class="rad40" placeholder="password" id="changePassword"  />
+            <p>why</p>
+            <input class="rad40" placeholder="why" id="addwhy"  />
         </div>
-        <button onclick="changePassword()" class="rad40">Submit</button>
+        <div class="box center">
+            <p>how</p>
+            <input class="rad40" placeholder="how" id="addhow"  />
+        </div>
+        <div class="box center">
+            <p>what</p>
+            <input class="rad40" placeholder="what" id="AddWhat"  />
+        </div>
+        <div class="box center">
+            <p>vision</p>
+            <input class="rad40" placeholder="vision" id="AddVision"  />
+        </div>
+        <div class="box center">
+            <p>picture</p>
+            <input class="rad40" placeholder="picture" id="AddPicture" type="file"  />
+        </div>
+        <div class="box center">
+            <p>Term</p>
+            <input class="rad40" placeholder="Date" id="addDate" type="number"  />
+        </div>
+       
+        <button onclick="AddMc()" class="rad40">Submit</button>
     </div>
 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>

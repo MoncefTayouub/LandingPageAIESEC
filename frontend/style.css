@@ -107,16 +107,18 @@ body {
   font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 body  .conainer {
-    width : 100% ;
+    width : 100vw ;
     box-sizing: border-box;
     padding : 10px ;
     flex-direction: column; 
-    height : 50vh ;
+    margin : 100px 0 ;
+    /* height : 50vh ; */
 }
 .box  {
   width : 70vw ;
   height : 50px ;
-  margin : 10px ;
+  margin : 10px 0 ;
+  
 }
 .box p {
   width : 150px ;
