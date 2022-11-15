@@ -52,7 +52,7 @@ const login = async ()=> {
 
     const changePassword = async ()=> {
         const dataC =  new FormData();
-        dataC.append( 'username' , document.getElementById('changeName').value)
+        dataC.append( 'name' , document.getElementById('changeName').value)
         dataC.append( 'password' , document.getElementById('changePassword').value)
     
         await axios ({
