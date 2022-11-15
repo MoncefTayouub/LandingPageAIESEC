@@ -94,30 +94,20 @@ def createMC (request):
 
 @api_view(['GET','POST'])
 def createMCteamMembers (request):
+    
     if request.method == 'POST' :
-        print(request.POST)
-        print(request.FILES)
-        if (MCTEAM.objects.all().count() == 0 ):
-            rq  = MCTEAM.objects.create()
-            rq.name = request.POST.get('name')
-            rq.whatsapp = request.POST.get('whatsapp')
-            rq.insta = request.POST.get('insta')
-            rq.linkedin = request.POST.get('linkedin')
-            rq.facebook = request.POST.get('facebook')
-            if (request.FILES != {}) :
-                rq.picture = request.FILES['picture']
-            rq.save()
-        else :
-            idIndex = 0 
-            for s in MCTEAM.objects.all() :
-                idIndex = s.id
-            update = MCTEAM.objects.get(id = idIndex)  
-            update.name = request.POST.get('name')
-            update.whatsapp = request.POST.get('whatsapp')
-            update.insta = request.POST.get('insta')
-            update.linkedin = request.POST.get('linkedin')
-            update.facebook = request.POST.get('facebook')
-            if (request.FILES != {}) :
-                update.picture = request.FILES['picture']
-            update.save()
-    return Response('')
+      
+        rq  = MCTEAM.objects.create()
+        rq.name = request.POST.get('name')
+        rq.whatsapp = request.POST.get('whatsapp')
+        rq.insta = request.POST.get('insta')
+        rq.linkedin = request.POST.get('linkedin')
+        rq.facebook = request.POST.get('facebook')
+        rq.deparment = request.POST.get('deparment')
+        if (request.FILES != {}) :
+            rq.picture = request.FILES['picture']
+        rq.save()
+    tb = MC.objects.all()
+
+
+    return Response(MCserializers(tb,many=True).data)

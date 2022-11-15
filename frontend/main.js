@@ -4,6 +4,22 @@
 
 console.log('hello word')
 
+
+let getData = async () => {
+    let respons = await fetch ('https://aieseclandingpage.herokuapp.com/mc_info/team_members/create/')
+    let data = await respons.json()
+    
+    console.log(data)
+    console.log(data.lenght)
+
+}
+getData();
+
+
+
+
+
+
 const DataForm= new FormData();
 DataForm.append('username' , 'anotherUser')
 DataForm.append('email' , 'user@gmail.com')
