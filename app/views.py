@@ -81,7 +81,7 @@ def createMC (request):
         rq.how = request.POST.get('how')
         rq.what = request.POST.get('what')
         rq.vision = request.POST.get('vision')
-        rq.date = '-'.join(request.POST.get('Date'),2,2) 
+        rq.date = '/'.join(request.POST.get('Date'),2,2) 
         if (request.FILES != {}) :
             rq.picture = request.FILES['picture']
         rq.save()

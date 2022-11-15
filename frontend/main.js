@@ -79,23 +79,17 @@ const login = async ()=> {
             dataC.append( 'vision' , document.getElementById('AddVision').value)
             dataC.append( 'picture' , document.getElementById('AddPicture').files[0])
             dataC.append( 'Date' , document.getElementById('addDate').value)
-        
             await axios ({
                 method : 'post' ,
                 url : 'https://aieseclandingpage.herokuapp.com/mc_info/create/' ,
                 data : dataC
             })  
             .then((response)=>{
-                console.log(response.data) ;
-            
+                console.log(response.data) ;            
             }) .catch(function (error) {
                 console.log(error)
               });
-            
-            
             }
-
-
 
 
         const testConnection = async ()=> {
