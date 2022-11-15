@@ -63,7 +63,7 @@ def ChangePassword(request):
         users = User.objects.get(username = request.POST.get('name') )
         users.set_password(request.POST.get('password'))
         users.save()
-        if (authenticate(username= request.POST.get('username') , password = request.POST.get('password')) == None ):
+        if (authenticate(username= request.POST.get('name') , password = request.POST.get('password')) == None ):
             return Response(0)  
         else : 
             return Response(1)
