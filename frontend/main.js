@@ -6,12 +6,15 @@ console.log('hello word')
 
 
 let getData = async () => {
+    let parent = document.getElementById('droplist')
     let respons = await fetch ('https://aieseclandingpage.herokuapp.com/mc_info/team_members/create/')
     let data = await respons.json()
-    
-    console.log(data)
-    console.log(data.lenght)
-
+    data.map((ob,i)=>{
+        let li = document.createElement('option');
+        li.value = ob.id 
+        li.textContent = ob.name
+        parent.appendChild(li)
+    })
 }
 getData();
 
@@ -87,26 +90,47 @@ const login = async ()=> {
         }
 
         const AddMc = async ()=> {
-            const dataC =  new FormData();
-            dataC.append( 'name' , document.getElementById('addMcName').value)
-            dataC.append( 'why' , document.getElementById('addwhy').value)
-            dataC.append( 'how' , document.getElementById('addhow').value)
-            dataC.append( 'what' , document.getElementById('AddWhat').value)
-            dataC.append( 'vision' , document.getElementById('AddVision').value)
-            dataC.append( 'picture' , document.getElementById('AddPicture').files[0])
-            dataC.append( 'Date' , document.getElementById('addDate').value)
-            await axios ({
-                method : 'post' ,
-                url : 'http://127.0.0.1:8000/mc_info/create/' ,
-                data : dataC
-            })  
-            .then((response)=>{
-                console.log(response.data) ;            
-            }) .catch(function (error) {
-                console.log(error)
-              });
+            const dataF =  new FormData();
+            dataF.append( 'name' , document.getElementById('addMcMemberName').value)
+            dataF.append( 'parent' , document.getElementById('droplist').value)
+            dataF.append( 'picture' , document.getElementById('AddPicture').files[0])
+            dataF.append( 'whatsapp' , document.getElementById('whatsapp').value)
+            dataF.append( 'instagram' , document.getElementById('instagram').value)
+            dataF.append( 'linkedin' , document.getElementById('linkedin').value)
+            dataF.append( 'facebook' , document.getElementById('facebook').value)
+            dataF.append( 'deparment' , document.getElementById('addMcMemberdeparment').value)
+            // await axios ({
+            //     method : 'post' ,
+            //     url : 'http://127.0.0.1:8000/mc_info/create/' ,
+            //     data : dataF
+            // })  
+            // .then((response)=>{
+            //     console.log(response.data) ;            
+            // }) .catch(function (error) {
+            //     console.log(error)
+            //   });
             }
 
+            const addMCMember = async ()=> {
+                const dataC =  new FormData();
+                dataC.append( 'name' , document.getElementById('addMcName').value)
+                dataC.append( 'why' , document.getElementById('addwhy').value)
+                dataC.append( 'how' , document.getElementById('addhow').value)
+                dataC.append( 'what' , document.getElementById('AddWhat').value)
+                dataC.append( 'vision' , document.getElementById('AddVision').value)
+                dataC.append( 'picture' , document.getElementById('AddPicture').files[0])
+                dataC.append( 'Date' , document.getElementById('addDate').value)
+                await axios ({
+                    method : 'post' ,
+                    url : 'http://127.0.0.1:8000/mc_info/create/' ,
+                    data : dataC
+                })  
+                .then((response)=>{
+                    console.log(response.data) ;            
+                }) .catch(function (error) {
+                    console.log(error)
+                  });
+                }
 
         const testConnection = async ()=> {
             console.log('pushing')

@@ -96,17 +96,22 @@ def createMC (request):
 def createMCteamMembers (request):
     
     if request.method == 'POST' :
-      
-        rq  = MCTEAM.objects.create()
-        rq.name = request.POST.get('name')
-        rq.whatsapp = request.POST.get('whatsapp')
-        rq.insta = request.POST.get('insta')
-        rq.linkedin = request.POST.get('linkedin')
-        rq.facebook = request.POST.get('facebook')
-        rq.deparment = request.POST.get('deparment')
-        if (request.FILES != {}) :
-            rq.picture = request.FILES['picture']
-        rq.save()
+        if (MC.objects.filter(id=request.POST.get('parent')) ==0 ):
+            return Response(-1)
+        else :
+            
+            rq  = MCTEAM.objects.create()
+            rq.name = request.POST.get('name')
+            rq.mcParent = MC.objects.get(id=request.POST.get('parent'))
+            rq.whatsapp = request.POST.get('whatsapp')
+            rq.insta = request.POST.get('insta')
+            rq.linkedin = request.POST.get('linkedin')
+            rq.facebook = request.POST.get('facebook')
+            rq.deparment = request.POST.get('deparment')
+            if (request.FILES != {}) :
+                rq.picture = request.FILES['picture']
+            rq.save()
+            return Response(1)
     tb = MC.objects.all()
 
 
