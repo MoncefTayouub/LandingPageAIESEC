@@ -96,23 +96,30 @@ def createMC (request):
 def createMCteamMembers (request):
     
     if request.method == 'POST' :
-        if (MC.objects.filter(id=request.POST.get('parent')) ==0 ):
-            return Response(-1)
-        else :
-            
-            rq  = MCTEAM.objects.create()
-            rq.name = request.POST.get('name')
-            rq.mcParent = MC.objects.get(id=request.POST.get('parent'))
-            rq.whatsapp = request.POST.get('whatsapp')
-            rq.insta = request.POST.get('insta')
-            rq.linkedin = request.POST.get('linkedin')
-            rq.facebook = request.POST.get('facebook')
-            rq.deparment = request.POST.get('deparment')
-            if (request.FILES != {}) :
-                rq.picture = request.FILES['picture']
-            rq.save()
-            return Response(1)
+        print(request.POST.get('parent'))
+       
+        print(request.POST)
+        index =  request.POST.get('parent')
+        print(MC.objects.get(id=index))
+        print(request.POST.get('whatsapp'))
+        rqup = MCTEAM.objects.create()
+        rqup.name = request.POST.get('name')
+        rqup.mcParent = MC.objects.get(id=index)
+        rqup.whatsapp = request.POST.get('whatsapp')
+        rqup.insta = request.POST.get('insta')
+        rqup.linkedin = request.POST.get('linkedin')
+        rqup.facebook = request.POST.get('facebook')
+        rqup.deparment = request.POST.get('deparment')
+        if (request.FILES != {}) :
+            rqup.picture = request.FILES['picture']
+        rqup.save()
+        return Response(1) 
     tb = MC.objects.all()
 
 
     return Response(MCserializers(tb,many=True).data)
+
+
+@api_view(['GET','POST'])
+def AddEvent (request):
+    return Response('')

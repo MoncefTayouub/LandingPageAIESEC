@@ -10,4 +10,3 @@ urlpatterns = [
      path('mc_info/create/', views.createMC ) ,
      path('mc_info/team_members/create/', views.createMCteamMembers ) ,
 ]
- 
