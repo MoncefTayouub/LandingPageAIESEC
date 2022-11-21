@@ -133,7 +133,23 @@ const login = async ()=> {
                 }
             
 
-                
+                const AddEvent = async ()=> {
+                   
+                    const dataC =  new FormData();
+                    dataC.append( 'name' , document.getElementById('addMcMemberName').value)
+                    
+                    await axios ({
+                        method : 'post' ,
+                        url : 'https://aieseclandingpage.herokuapp.com/event/insert/' ,
+                        data : DataForm
+                    })
+                    .then((response)=>{
+                        console.log(response.data) ;
+                    
+                    }) .catch(function (error) {
+                        console.log(error)
+                      });
+                    }       
 
 
 

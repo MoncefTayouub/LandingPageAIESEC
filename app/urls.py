@@ -9,4 +9,5 @@ urlpatterns = [
      path('log/changepassword/', views.ChangePassword ) ,
      path('mc_info/create/', views.createMC ) ,
      path('mc_info/team_members/create/', views.createMCteamMembers ) ,
+     path('event/insert/', views.AddEvent ) ,
 ]

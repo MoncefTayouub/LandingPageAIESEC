@@ -94,10 +94,8 @@ def createMC (request):
 
 @api_view(['GET','POST'])
 def createMCteamMembers (request):
-    
     if request.method == 'POST' :
         print(request.POST.get('parent'))
-       
         print(request.POST)
         index =  request.POST.get('parent')
         print(MC.objects.get(id=index))
@@ -122,4 +120,7 @@ def createMCteamMembers (request):
 
 @api_view(['GET','POST'])
 def AddEvent (request):
+    if request.method == 'POST' :
+        print(request.POST)
     return Response('')
+
