@@ -157,7 +157,7 @@ const login = async ()=> {
                     console.log(TheDay)
                     await axios ({
                         method : 'post' ,
-                        url : 'http://127.0.0.1:8000/event/insert/' ,
+                        url : 'https://aieseclandingpage.herokuapp.com/event/insert/' ,
                         data : dataC
                     })
                     .then((response)=>{
@@ -176,7 +176,7 @@ const login = async ()=> {
             
             await axios ({
                 method : 'post' ,
-                url : 'http://127.0.0.1:8000/question_answer/insert/' ,
+                url : 'https://aieseclandingpage.herokuapp.com/question_answer/insert/' ,
                 data : dataC
             })
             .then((response)=>{
@@ -196,7 +196,7 @@ const login = async ()=> {
                 
                 await axios ({
                     method : 'post' ,
-                    url : 'http://127.0.0.1:8000/form/insert/' ,
+                    url : 'https://aieseclandingpage.herokuapp.com/form/insert/' ,
                     data : dataC
                 })
                 .then((response)=>{
@@ -207,19 +207,5 @@ const login = async ()=> {
                     });
                 }
 
-        const testConnection = async ()=> {
-            console.log('pushing')
-            
-            await axios ({
-                method : 'post' ,
-                url : 'https://aieseclandingpage.herokuapp.com/' ,
-                data : DataForm
-            })
-            .then((response)=>{
-                console.log(response.data) ;
-            
-            }) .catch(function (error) {
-                console.log(error)
-              });
-            }
+    
         // https://aieseclandingpage.herokuapp.com/mc_info/team_members/create/

@@ -19,13 +19,7 @@ from .Manipulation import *
 
 @api_view(['GET','POST'])
 def Home(request):    
-    if request.method == 'POST':
-        rq = FQ.objects.create(Question='AIESEC is the best ?',Answer='yes')
-        rq.save()
-        tb = FQ.objects.all()
-        ser = FQserializers(tb, many=True).data
-        return Response({'response':'admit','msg sents':request.POST , 'database':ser})
-
+    
     return Response('you are home')  
     
 @api_view(['GET','POST']) 
@@ -187,7 +181,7 @@ def AddForms (request):
     
     if request.method == 'GET' :
         sr = Forms.objects.all()
-        return Response(FQserializers(sr,many=True).data)
+        return Response(FormsSerializers(sr,many=True).data)
     return Response('')
 
 

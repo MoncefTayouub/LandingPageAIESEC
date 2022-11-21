@@ -22,3 +22,9 @@ class FQserializers(serializers.ModelSerializer):
     class Meta :
         fields = '__all__'
         model = FQ
+
+
+class FormsSerializers(serializers.ModelSerializer):
+    class Meta :
+        fields = '__all__'
+        model = Forms
