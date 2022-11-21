@@ -14,6 +14,7 @@ import string
 from django.contrib.auth.models import User
 from .forms import *
 from .serializable import *
+from .Manipulation import *
 # Create your views here.
 
 @api_view(['GET','POST'])
@@ -122,5 +123,72 @@ def createMCteamMembers (request):
 def AddEvent (request):
     if request.method == 'POST' :
         print(request.POST)
+        print(str_bool(request.POST.get('AIESECER')))
+        print(str_bool(request.POST.get('eventlimited_places_OR_nonlimited')))
+        tm = Event.objects.create()
+
+        tm.name = request.POST.get('name') 
+        tm.picture = request.POST.get('eventPic')
+        tm.venue_address = request.POST.get('address')
+
+        tm.venue_address_LINK_maps = request.POST.get('maps')
+        tm.date = FixdateForma(request.POST.get('date'))
+        tm.registration_link_form = request.POST.get('form')
+        
+        tm.time = float(request.POST.get('time'))
+        tm.AIESECERS_or_youth = str_bool(request.POST.get('AIESECER'))
+        tm.link_page = request.POST.get('link_page')
+
+        tm.limited_places_OR_nonlimited = str_bool(request.POST.get('eventlimited_places_OR_nonlimited'))
+        tm.city_name = request.POST.get('event_city_name')
+        tm.description = request.POST.get('event_description')
+        tm.save()  
+        return Response(1)
+    if request.method == 'GET':
+        TB = Event.objects.all()
+        return Response(Eventserializers(TB,many=True).data)
+    return Response('') 
+
+@api_view(['GET','POST'])
+def AddFQ (request):
+    if request.method == 'POST' :
+        tl = FQ.objects.create()
+        tl.Question = request.POST.get('question')
+        tl.Answer = request.POST.get('Answer')
+        tl.save()   
+    
+    if request.method == 'GET' :
+        sr = FQ.objects.all()
+        return Response(FQserializers(sr,many=True).data)
     return Response('')
 
+@api_view(['GET','POST'])
+def AddFQ (request):
+    if request.method == 'POST' :
+        tl = FQ.objects.create()
+        tl.Question = request.POST.get('question')
+        tl.Answer = request.POST.get('Answer')
+        tl.save()   
+    
+    if request.method == 'GET' :
+        sr = FQ.objects.all()
+        return Response(FQserializers(sr,many=True).data)
+    return Response('')
+
+@api_view(['GET','POST'])
+def AddForms (request):
+    if request.method == 'POST' :
+        print(request.POST)
+        tl = Forms.objects.create()
+        tl.joinAIESC = request.POST.get('joinAIESC')
+        tl.beApartner = request.POST.get('beApartner')
+        tl.EP = request.POST.get('EP')
+        tl.save()   
+    
+    if request.method == 'GET' :
+        sr = Forms.objects.all()
+        return Response(FQserializers(sr,many=True).data)
+    return Response('')
+
+
+ 

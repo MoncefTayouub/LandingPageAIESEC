@@ -10,4 +10,7 @@ urlpatterns = [
      path('mc_info/create/', views.createMC ) ,
      path('mc_info/team_members/create/', views.createMCteamMembers ) ,
      path('event/insert/', views.AddEvent ) ,
+     path('question_answer/insert/', views.AddFQ ) ,
+     path('form/insert/', views.AddForms ) ,
+      
 ]

@@ -13,3 +13,12 @@ class FQserializers(serializers.ModelSerializer):
     class Meta :
         fields = '__all__'
         model = FQ  
+class Eventserializers(serializers.ModelSerializer):
+    class Meta :
+        fields = '__all__'
+        model = Event
+
+class FQserializers(serializers.ModelSerializer):
+    class Meta :
+        fields = '__all__'
+        model = FQ

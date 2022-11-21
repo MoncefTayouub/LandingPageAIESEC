@@ -134,14 +134,31 @@ const login = async ()=> {
             
 
                 const AddEvent = async ()=> {
-                   
+                    let tm = document.getElementById('eventdate').value
+                    let arr = tm.split('/')
+                    let TheDay = arr[1]+'/'+arr[0]+'/'+arr[2]
                     const dataC =  new FormData();
-                    dataC.append( 'name' , document.getElementById('addMcMemberName').value)
-                    
+                    dataC.append( 'name' , document.getElementById('EventName').value)
+                    dataC.append( 'address' , document.getElementById('EventVenue').value)
+                    dataC.append( 'maps' , document.getElementById('eventVenLink').value)
+                   
+                    dataC.append( 'date' , tm )
+                    dataC.append( 'form' , document.getElementById('eventform').value)
+                    dataC.append( 'time' , document.getElementById('eventTime').value)
+                   
+                    // dataC.append( 'AIESECER' , document.getElementById('eventIfAiesecer').value)
+                    dataC.append( 'AIESECER' ,true)
+                    dataC.append( 'link_page' , document.getElementById('eventLinkPage').value)
+                    dataC.append( 'eventlimited_places_OR_nonlimited' , false)
+                   
+                    dataC.append( 'event_city_name' , document.getElementById('event_city_name').value)
+                    dataC.append( 'event_description' , document.getElementById('event_description').value)
+                    dataC.append( 'eventPic' , document.getElementById('eventPic').value)
+                    console.log(TheDay)
                     await axios ({
                         method : 'post' ,
-                        url : 'https://aieseclandingpage.herokuapp.com/event/insert/' ,
-                        data : DataForm
+                        url : 'http://127.0.0.1:8000/event/insert/' ,
+                        data : dataC
                     })
                     .then((response)=>{
                         console.log(response.data) ;
@@ -151,7 +168,44 @@ const login = async ()=> {
                       });
                     }       
 
+        const AddQestion_Answer = async ()=> {
+            const dataC =  new FormData();
+            dataC.append( 'question' , document.getElementById('question').value)
+            dataC.append( 'Answer' , document.getElementById('Answer').value)
 
+            
+            await axios ({
+                method : 'post' ,
+                url : 'http://127.0.0.1:8000/question_answer/insert/' ,
+                data : dataC
+            })
+            .then((response)=>{
+                console.log(response.data) ;
+            
+            }) .catch(function (error) {
+                console.log(error)
+                });
+            }
+
+            const AddForm = async ()=> {
+                const dataC =  new FormData();
+                dataC.append( 'joinAIESC' , document.getElementById('joinAIESC').value)
+                dataC.append( 'beApartner' , document.getElementById('beApartner').value)
+                dataC.append( 'EP' , document.getElementById('EP').value)
+    
+                
+                await axios ({
+                    method : 'post' ,
+                    url : 'http://127.0.0.1:8000/form/insert/' ,
+                    data : dataC
+                })
+                .then((response)=>{
+                    console.log(response.data) ;
+                
+                }) .catch(function (error) {
+                    console.log(error)
+                    });
+                }
 
         const testConnection = async ()=> {
             console.log('pushing')

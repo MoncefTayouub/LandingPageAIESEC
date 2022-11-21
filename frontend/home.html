@@ -148,7 +148,7 @@
         </div>
         <div class="box center">
             <p>date</p>
-            <input class="rad40" placeholder="" id="eventdate"  />
+            <input class="rad40" format="yyyy-mm-dd" placeholder="" id="eventdate" type="date"  />
         </div>
         <div class="box center">
             <p>registration link form</p>
@@ -156,7 +156,7 @@
         </div>
         <div class="box center">
             <p>time</p>
-            <input class="rad40" placeholder="" id="eventTime"  />
+            <input class="rad40"  placeholder="" id="eventTime"  />
         </div>
         <div class="box center">
             <p>AIESECERS_or_youth</p>
@@ -183,10 +183,42 @@
             <p>picture</p>
             <input class="rad40" placeholder="picture" id="eventPic" type="file"  />
         </div>
-        <button onclick="AddEvent()" class="rad40">Submit</button>
+        <button onclick="AddEvent()" class="rad40">add event</button>
+    </div>
+
+    <div class="conainer center">
+        <h3>Qestion and Answer</h3>
+        <div class="box center">
+            <p>Question</p>
+            <input placeholder="question ? "  class="rad40" id="question" />
+        </div>
+        
+        <div class="box center">
+            <p>Answer</p>
+            <input class="rad40" placeholder="Answer" id="Answer"  />
+        </div>
+        <button onclick="AddQestion_Answer()" class="rad40">Submit</button>
+    </div>
+
+    <div class="conainer center">
+        <h3>Add Form </h3>
+        <div class="box center">
+            <p>joinAIESC</p>
+            <input placeholder="joinAIESC ? "  class="rad40" id="joinAIESC" />
+        </div>
+        
+        <div class="box center">
+            <p>beApartner</p>
+            <input class="rad40" placeholder="beApartner" id="beApartner"  />
+        </div>
+        <div class="box center">
+            <p>EP</p>
+            <input class="rad40" placeholder="EP" id="EP"  />
+        </div>
+        <button onclick="AddForm()" class="rad40">Submit</button>
     </div>
 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="main.js"></script>
 </body>
-</html>
+</html> 

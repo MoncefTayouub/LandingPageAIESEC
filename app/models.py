@@ -45,13 +45,16 @@ class Event (models.Model):
     name  = models.TextField()
     picture = models.ImageField(upload_to=upload_path, blank=True)
     venue_address = models.TextField()
+   
     venue_address_LINK_maps = models.TextField()
-    date =  models.DateField(("Date"), default=datetime.date.today)
+    date =  models.DateField(("Date"), default=datetime.date.today ,null=True,blank=True)
     registration_link_form = models.TextField()
-    time =  models.IntegerField()
-    AIESECERS_or_youth = models.BooleanField() # true if for AIESECER 
-    link_page =  models.TextField()
-    limited_places_OR_nonlimited = models.BooleanField()
+  
+    time =  models.IntegerField(null=True,blank=True)
+    AIESECERS_or_youth = models.BooleanField(null=True,blank=True) # true if for AIESECER 
+    link_page =  models.TextField(null=True,blank=True)
+  
+    limited_places_OR_nonlimited = models.BooleanField(null=True,blank=True)
     city_name = models.TextField()
     description = models.TextField()
 
