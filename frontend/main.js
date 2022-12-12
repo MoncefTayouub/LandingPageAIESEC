@@ -7,8 +7,9 @@ console.log('hello word')
 
 let getData = async () => {
     let parent = document.getElementById('droplist')
-    let respons = await fetch ('https://aieseclandingpage.herokuapp.com/mc_info/team_members/create/')
+    let respons = await fetch ('http://127.0.0.1:8000/mc_info/team_members/create/')
     let data = await respons.json()
+    console.log(data)
     data.map((ob,i)=>{
         let li = document.createElement('option');
         li.value = ob.id 
@@ -22,11 +23,8 @@ getData();
 
 
 
+// push to sign in 
 
-const DataForm= new FormData();
-DataForm.append('username' , 'anotherUser')
-DataForm.append('email' , 'user@gmail.com')
-DataForm.append('password' , 'chamali123@')
 
 const submiting = async ()=> {
     const dataF =  new FormData();
@@ -146,8 +144,8 @@ const login = async ()=> {
                     dataC.append( 'form' , document.getElementById('eventform').value)
                     dataC.append( 'time' , document.getElementById('eventTime').value)
                    
-                    // dataC.append( 'AIESECER' , document.getElementById('eventIfAiesecer').value)
-                    dataC.append( 'AIESECER' ,true)
+                    dataC.append( 'AIESECER' , document.getElementById('eventIfAiesecer').value)
+
                     dataC.append( 'link_page' , document.getElementById('eventLinkPage').value)
                     dataC.append( 'eventlimited_places_OR_nonlimited' , false)
                    
