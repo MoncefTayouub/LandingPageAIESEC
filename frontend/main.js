@@ -4,9 +4,10 @@
 
 console.log('hello word')
 
-
+http://127.0.0.1:8000/admin/login/?next=/admin/
 let getData = async () => {
     let parent = document.getElementById('droplist')
+    // let respons = await fetch ('http://moncef.pythonanywhere.com/mc_info/team_members/create/')
     let respons = await fetch ('http://127.0.0.1:8000/mc_info/team_members/create/')
     let data = await respons.json()
     console.log(data)
@@ -35,7 +36,7 @@ const submiting = async ()=> {
 
     await axios ({
         method : 'post' ,
-        url : 'https://aieseclandingpage.herokuapp.com/log/singin/' ,
+        url : 'http://moncef.pythonanywhere.com/log/singin/' ,
         data : dataF
     })
     .then((response)=>{
@@ -53,7 +54,7 @@ const login = async ()=> {
  
     await axios ({
         method : 'post' ,
-        url : 'https://aieseclandingpage.herokuapp.com/log/in/' ,
+        url : 'http://moncef.pythonanywhere.com/log/in/' ,
         data : dataL
     })
     .then((response)=>{
@@ -74,7 +75,7 @@ const login = async ()=> {
     
         await axios ({
             method : 'post' ,
-            url : 'https://aieseclandingpage.herokuapp.com/log/changepassword/' ,
+            url : 'http://moncef.pythonanywhere.com/log/changepassword/' ,
             data : dataC
         })
         .then((response)=>{
@@ -98,7 +99,7 @@ const login = async ()=> {
             dataC.append( 'Date' , document.getElementById('addDate').value)
             await axios ({
                 method : 'post' ,
-                url : 'https://aieseclandingpage.herokuapp.com/mc_info/create/' ,
+                url : 'http://moncef.pythonanywhere.com/mc_info/create/' ,
                 data : dataC
             })  
             .then((response)=>{
@@ -120,7 +121,7 @@ const login = async ()=> {
                 dataC.append( 'deparment' , document.getElementById('addMcMemberdeparment').value)
                 await axios ({
                     method : 'post' ,
-                    url : 'https://aieseclandingpage.herokuapp.com/team_members/create/' ,
+                    url : 'http://moncef.pythonanywhere.com/team_members/create/' ,
                     data : dataC
                 })  
                 .then((response)=>{
@@ -155,7 +156,7 @@ const login = async ()=> {
                     console.log(TheDay)
                     await axios ({
                         method : 'post' ,
-                        url : 'https://aieseclandingpage.herokuapp.com/event/insert/' ,
+                        url : 'http://moncef.pythonanywhere.com/event/insert/' ,
                         data : dataC
                     })
                     .then((response)=>{
@@ -174,7 +175,7 @@ const login = async ()=> {
             
             await axios ({
                 method : 'post' ,
-                url : 'https://aieseclandingpage.herokuapp.com/question_answer/insert/' ,
+                url : 'http://moncef.pythonanywhere.com/question_answer/insert/' ,
                 data : dataC
             })
             .then((response)=>{
@@ -194,7 +195,7 @@ const login = async ()=> {
                 
                 await axios ({
                     method : 'post' ,
-                    url : 'https://aieseclandingpage.herokuapp.com/form/insert/' ,
+                    url : 'http://moncef.pythonanywhere.com/form/insert/' ,
                     data : dataC
                 })
                 .then((response)=>{
