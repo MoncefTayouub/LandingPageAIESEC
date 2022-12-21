@@ -71,7 +71,6 @@ def ChangePassword(request):
 def createMC (request):
     if request.method == 'POST' :
         tuple = (str(request.POST.get('Date')),str(2),str(2))
-        print()
         rq  = MC.objects.create()
         rq.name = request.POST.get('name')
         rq.why = request.POST.get('why')
@@ -107,10 +106,9 @@ def createMCteamMembers (request):
             rqup.picture = request.FILES['picture']
         rqup.save()
         return Response(1) 
-    tb = MC.objects.all()
-
-
-    return Response(MCserializers(tb,many=True).data)
+    
+    tb = MCTEAM.objects.all()
+    return Response(MCTEAMser(tb,many=True).data)
 
 
 @api_view(['GET','POST'])
@@ -143,18 +141,18 @@ def AddEvent (request):
         return Response(Eventserializers(TB,many=True).data)
     return Response('') 
 
-@api_view(['GET','POST'])
-def AddFQ (request):
-    if request.method == 'POST' :
-        tl = FQ.objects.create()
-        tl.Question = request.POST.get('question')
-        tl.Answer = request.POST.get('Answer')
-        tl.save()   
+# @api_view(['GET','POST'])
+# def AddFQ (request):
+#     if request.method == 'POST' :
+#         tl = FQ.objects.create()
+#         tl.Question = request.POST.get('question')
+#         tl.Answer = request.POST.get('Answer')
+#         tl.save()   
     
-    if request.method == 'GET' :
-        sr = FQ.objects.all()
-        return Response(FQserializers(sr,many=True).data)
-    return Response('')
+#     if request.method == 'GET' :
+#         sr = FQ.objects.all()
+#         return Response(FQserializers(sr,many=True).data)
+#     return Response('')
 
 @api_view(['GET','POST'])
 def AddFQ (request):

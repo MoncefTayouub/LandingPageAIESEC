@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var url = 'http://127.0.0.1:8000'
+    let getData = async () => {
+    let parent = document.getElementById('droplist')
+    let respons = await fetch (url+'/mc_info/team_members/create/')
+    let data = await respons.json()
+    console.log(data)
+
+    data.map((ob,i)=>{
+
+    var resp = para = document.createElement("div")
+    resp.className = 'responsive-cell-block wk-desk-3 wk-ipadp-3 wk-tab-6 wk-mobile-12 team-card-container'
+    
+    var team_card = para = document.createElement("div")
+    team_card.className = 'team-card'
+
+    var social_media_links = para = document.createElement("div")
+    social_media_links.className = 'social-media-links'
+
+    var img_wrapper = para = document.createElement("div")
+    img_wrapper.className = 'img-wrapper'
+
+    var p_name = para = document.createElement("p")
+    p_name.className = 'text-blk name'
+    p_name.innerHTML = ob['name']
+
+
+    var p_position = para = document.createElement("p")
+    p_position.className = 'text-blk position'
+    p_position.innerHTML = ob['deparment']
+
+    var persImage= para = document.createElement("img")
+    persImage.className = 'team-img'
+    persImage.src = "http://127.0.0.1:8000/"+ob['picture']
+
+    var team_cardtw = para = document.createElement("a")
+    var images= para = document.createElement("img")
+    images.src = "https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/gray-twitter.svg"
+    team_cardtw.className = 'team-card'
+    team_cardtw.href = ob['insta']
+    team_cardtw.append(images)
+    social_media_links.append(team_cardtw)
+
+    var team_cardfb = para = document.createElement("a")
+    var imagesfb= para = document.createElement("img")
+    team_cardfb.className = 'team-card'
+    team_cardfb.href = ob['linkedin']
+    imagesfb.src = "https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/gray-twitter.svg"
+    team_cardfb.append(imagesfb)
+    social_media_links.append(team_cardfb)
+
+    var team_cardins = para = document.createElement("a")
+    var imagesfb= para = document.createElement("img")
+    team_cardins.className = 'team-card'
+    team_cardins.href = ob['linkedin']
+    imagesfb.src = "https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/gray-twitter.svg"
+    team_cardins.append(imagesfb)
+    social_media_links.append(team_cardins)
+
+    var co = document.getElementById('content')
+    img_wrapper.append(persImage)
+    team_card.append(img_wrapper)
+    team_card.append(p_name)
+    team_card.append(p_position)
+    social_media_links.append(team_card)
+    
+    co.append(social_media_links)
+    append(co)
+    
+})
+    return data
+}
+getData();
+let htmlConent 
+
+
+
+
+
+    </script>
+    
+    <p>lef</p>
+      <div id="content">sdfsd</div>
+</body>
+</html>
+
+

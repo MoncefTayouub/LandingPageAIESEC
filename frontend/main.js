@@ -1,14 +1,13 @@
 
 
 
+var url = 'http://127.0.0.1:8000'
 
-console.log('hello word')
 
-http://127.0.0.1:8000/admin/login/?next=/admin/
+// http://127.0.0.1:8000/admin/login/?next=/admin/
 let getData = async () => {
     let parent = document.getElementById('droplist')
-    // let respons = await fetch ('http://moncef.pythonanywhere.com/mc_info/team_members/create/')
-    let respons = await fetch ('http://127.0.0.1:8000/mc_info/team_members/create/')
+    let respons = await fetch (url+'/mc_info/team_members/create/')
     let data = await respons.json()
     console.log(data)
     data.map((ob,i)=>{
@@ -24,7 +23,7 @@ getData();
 
 
 
-// push to sign in 
+// push to sign in  
 
 
 const submiting = async ()=> {
@@ -36,7 +35,7 @@ const submiting = async ()=> {
 
     await axios ({
         method : 'post' ,
-        url : 'http://moncef.pythonanywhere.com/log/singin/' ,
+        url : url+'/log/singin/' ,
         data : dataF
     })
     .then((response)=>{
@@ -54,7 +53,7 @@ const login = async ()=> {
  
     await axios ({
         method : 'post' ,
-        url : 'http://moncef.pythonanywhere.com/log/in/' ,
+        url : url+'/log/in/' ,
         data : dataL
     })
     .then((response)=>{
@@ -75,7 +74,7 @@ const login = async ()=> {
     
         await axios ({
             method : 'post' ,
-            url : 'http://moncef.pythonanywhere.com/log/changepassword/' ,
+            url : url+'/log/changepassword/' ,
             data : dataC
         })
         .then((response)=>{
@@ -97,9 +96,9 @@ const login = async ()=> {
             dataC.append( 'vision' , document.getElementById('AddVision').value)
             dataC.append( 'picture' , document.getElementById('AddPicture').files[0])
             dataC.append( 'Date' , document.getElementById('addDate').value)
-            await axios ({
+             await axios ({
                 method : 'post' ,
-                url : 'http://moncef.pythonanywhere.com/mc_info/create/' ,
+                url : url+'/mc_info/create/' ,
                 data : dataC
             })  
             .then((response)=>{
@@ -121,7 +120,7 @@ const login = async ()=> {
                 dataC.append( 'deparment' , document.getElementById('addMcMemberdeparment').value)
                 await axios ({
                     method : 'post' ,
-                    url : 'http://moncef.pythonanywhere.com/team_members/create/' ,
+                    url : url+'/mc_info/team_members/create/' ,
                     data : dataC
                 })  
                 .then((response)=>{
@@ -156,7 +155,7 @@ const login = async ()=> {
                     console.log(TheDay)
                     await axios ({
                         method : 'post' ,
-                        url : 'http://moncef.pythonanywhere.com/event/insert/' ,
+                        url : url+'/event/insert/' ,
                         data : dataC
                     })
                     .then((response)=>{
@@ -175,7 +174,7 @@ const login = async ()=> {
             
             await axios ({
                 method : 'post' ,
-                url : 'http://moncef.pythonanywhere.com/question_answer/insert/' ,
+                url : url+'/question_answer/insert/' ,
                 data : dataC
             })
             .then((response)=>{
@@ -195,7 +194,7 @@ const login = async ()=> {
                 
                 await axios ({
                     method : 'post' ,
-                    url : 'http://moncef.pythonanywhere.com/form/insert/' ,
+                    url : url+'/form/insert/' ,
                     data : dataC
                 })
                 .then((response)=>{
