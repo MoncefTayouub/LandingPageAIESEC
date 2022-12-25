@@ -1,13 +1,14 @@
 
 
 
-var url = 'http://127.0.0.1:8000'
+// var url = 'http://127.0.0.1:8000'
+var url = 'http://moncef.pythonanywhere.com'
 
 
 // http://127.0.0.1:8000/admin/login/?next=/admin/
 let getData = async () => {
     let parent = document.getElementById('droplist')
-    let respons = await fetch (url+'/mc_info/team_members/create/')
+    let respons = await fetch (url+'/mc_info/create/')
     let data = await respons.json()
     console.log(data)
     data.map((ob,i)=>{

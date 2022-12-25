@@ -89,11 +89,9 @@ def createMC (request):
 @api_view(['GET','POST'])
 def createMCteamMembers (request):
     if request.method == 'POST' :
-        print(request.POST.get('parent'))
-        print(request.POST)
+    
         index =  request.POST.get('parent')
-        print(MC.objects.get(id=index))
-        print(request.POST.get('whatsapp'))
+
         rqup = MCTEAM.objects.create()
         rqup.name = request.POST.get('name')
         rqup.mcParent = MC.objects.get(id=index)
@@ -108,6 +106,7 @@ def createMCteamMembers (request):
         return Response(1) 
     
     tb = MCTEAM.objects.all()
+   
     return Response(MCTEAMser(tb,many=True).data)
 
 
@@ -183,4 +182,18 @@ def AddForms (request):
     return Response('')
 
 
- 
+
+@api_view(['GET','POST'])
+def createLCteamMembers (request):
+    if request.method == 'POST' :
+        print(request.POST)
+        tl = LCMembers.objects.create()
+        tl.name = request.POST.get('name')
+        tl.department = request.POST.get('department')
+        tl.role = request.POST.get('role')
+        tl.parent = request.POST.get('index')
+        tl.save()  
+    else : 
+        m = LCMembers.objects.all()
+        return Response(LCTEAMser(m , many=True).data)
+    return Response(1)

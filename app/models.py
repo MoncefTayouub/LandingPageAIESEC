@@ -13,6 +13,12 @@ class LCs(models.Model):
     vision = models.TextField()
     picture = models.ImageField(upload_to=upload_path, blank=True)
 
+class LCMembers(models.Model):
+    name = models.TextField()
+    department = models.TextField()
+    role = models.TextField()
+    parent = models.ForeignKey(LCs, on_delete=models.CASCADE,null=True,blank=True)
+
 class MC(models.Model):
     name = models.TextField()
     why = models.TextField()

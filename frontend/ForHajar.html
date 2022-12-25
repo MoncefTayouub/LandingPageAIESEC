@@ -4,16 +4,24 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Document</title> 
 </head>
 <body>
     <script>
-        var url = 'http://127.0.0.1:8000'
+        var url = 'http://moncef.pythonanywhere.com'
     let getData = async () => {
-    let parent = document.getElementById('droplist')
+    // let parent = document.getElementById('droplist')
     let respons = await fetch (url+'/mc_info/team_members/create/')
     let data = await respons.json()
     console.log(data)
+    
+    data.map((ob,i)=>{
+        console.log(ob)
+
+    })
+
+    let v = {'name':'hajar'}
+
 
     data.map((ob,i)=>{
 
@@ -40,7 +48,7 @@
 
     var persImage= para = document.createElement("img")
     persImage.className = 'team-img'
-    persImage.src = "http://127.0.0.1:8000/"+ob['picture']
+    persImage.src = url+ob['picture']
 
     var team_cardtw = para = document.createElement("a")
     var images= para = document.createElement("img")
@@ -74,7 +82,7 @@
     social_media_links.append(team_card)
     
     co.append(social_media_links)
-    append(co)
+    // append(co)
     
 })
     return data
@@ -88,8 +96,7 @@ let htmlConent
 
     </script>
     
-    <p>lef</p>
-      <div id="content">sdfsd</div>
+      <div id="content"></div>
 </body>
 </html>
 

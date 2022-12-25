@@ -33,3 +33,8 @@ class FormsSerializers(serializers.ModelSerializer):
     class Meta :
         fields = '__all__'
         model = Forms
+
+class LCTEAMser(serializers.ModelSerializer):
+    class Meta :
+        fields = '__all__'
+        model = LCMembers
