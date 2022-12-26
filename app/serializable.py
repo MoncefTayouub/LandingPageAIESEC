@@ -38,3 +38,8 @@ class LCTEAMser(serializers.ModelSerializer):
     class Meta :
         fields = '__all__'
         model = LCMembers
+
+class LCser(serializers.ModelSerializer):
+    class Meta :
+        fields = '__all__'
+        model = LCs

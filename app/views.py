@@ -181,7 +181,19 @@ def AddForms (request):
         return Response(FormsSerializers(sr,many=True).data)
     return Response('')
 
-
+@api_view(['GET','POST'])
+def createLCembers (request):
+    if request.method == 'POST' :
+        print(request.POST)
+        tl = LCs.objects.create()
+        tl.name = request.POST.get('name')
+        tl.vision = request.POST.get('vision')
+        if (request.FILES != {}) :
+            tl.picture = request.FILES['picture']
+        tl.save()  
+    else : 
+        r = LCs.objects.all()
+        return Response(LCser(r,many=True).data)
 
 @api_view(['GET','POST'])
 def createLCteamMembers (request):
