@@ -95,9 +95,9 @@ def createMCteamMembers (request):
         rqup = MCTEAM.objects.create()
         rqup.name = request.POST.get('name')
         rqup.mcParent = MC.objects.get(id=index)
-        rqup.whatsapp = request.POST.get('whatsapp')
+        rqup.gmail = request.POST.get('whatsapp')
         rqup.insta = request.POST.get('insta')
-        rqup.linkedin = request.POST.get('linkedin')
+        rqup.twiter = request.POST.get('linkedin')
         rqup.facebook = request.POST.get('facebook')
         rqup.deparment = request.POST.get('deparment')
         if (request.FILES != {}) :
