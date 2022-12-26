@@ -40,9 +40,9 @@ class MCTEAM (models.Model):
     mcParent = models.ForeignKey(MC, on_delete=models.CASCADE,null=True,blank=True)
     name  = models.TextField()
     picture = models.ImageField(upload_to=upload_path, blank=True)
-    whatsapp = models.TextField()
+    twiter = models.TextField()
     insta = models.TextField()
-    linkedin = models.TextField()
+    gmail = models.TextField()
     facebook = models.TextField()
     deparment = models.TextField()
 
