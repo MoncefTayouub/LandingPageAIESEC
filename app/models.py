@@ -3,7 +3,6 @@ import datetime
 # Create your models here.
 def upload_path(instance , filename):
     path = '/'.join(['covers',filename])
-    # path = 'frontend/src' + path + '.jpg'
     path = ''.join([ path , '.jpg'])
     return path
 
@@ -56,7 +55,7 @@ class Event (models.Model):
     date =  models.DateField(("Date"), default=datetime.date.today ,null=True,blank=True)
     registration_link_form = models.TextField()
   
-    time =  models.IntegerField(null=True,blank=True)
+    time =  models.FloatField(null=True,blank=True)
     AIESECERS_or_youth = models.BooleanField(null=True,blank=True) # true if for AIESECER 
     link_page =  models.TextField(null=True,blank=True)
   
